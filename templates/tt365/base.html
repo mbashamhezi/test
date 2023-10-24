@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT365</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'tt365/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'tt365/css/slider.css' %}">
+    <link rel="stylesheet" href="{% static 'tt365/css/cart.css' %}">
+</head>
+<body>
+    <div class="nav-container">
+        <div class="logo">
+            <a href="#"><img src="{% static 'tt365/images/logo.jpeg' %}" alt=""></a>
+        </div>
+        <ul class="nav">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search products, brands and categories">
+                <button type="submit" class="search-button">SEARCH</button>
+            </div>
+            <li class="nav-link"><a href="/login"><i class='bx bx-user'> Account</i></a></li>
+            
+            <li class="nav-link"><a href="/cart"><i class='bx bx-cart-alt'> Cart</i></a></li>
+        </ul>
+    </div>
+
+   <div class="box-1">
+        <h3>Welcome to TT365</h3>
+    </div>
+    <div class="box-2">
+        <h3>Shine with TT365 Fashions</h3>
+    </div>
+
+
+
+    {% block content %}
+
+
+    {% endblock %}
+
+    
+
+    <hr style="border: 2px solid black;">
+    
+    <footer id="footer">
+        <h1 class="text-center">TT365</h1>
+        <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, fugiat!</p>
+        <div class="icons text-center">
+            <i class='bx bxl-whatsapp'></i> 
+            <i class='bx bxl-instagram'></i>
+            <i class='bx bxl-facebook'></i>
+        </div>
+        <div class="copyright text-center">
+            &copy;Copyright <strong><span>TT365</span></strong>. All Rights Reserved
+        </div>
+        <div class="credite text-center">
+            Designed By <a href="#">Celline</a>
+        </div>
+    </footer>
+
+<script src="{% static 'tt365/js/slider.js' %}"></script>
+<script src="{% static 'tt365/js/card.js' %}"></script>
+
+</body>
+</html>

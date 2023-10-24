@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E9D98C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+.login-form {
+    max-width: 300px;
+    margin: 40px;
+}
+
+h1 {
+    /* margin: 0; */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-link a{
+  color: #4158d0;
+  margin-top: 10px;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+      <form class="login-form" method="post">
+        {% csrf_token %}
+        <h1>Signup</h1>
+        <input type="text" name="fullname" placeholder="Fullname">
+        <input type="email" name="email" placeholder="Email address">
+        <input type="text" name="phone-number" placeholder="Phone number">
+        <input type="password" name="password" placeholder="Password">
+        <input type="retype-password" name="retype-password" placeholder="Retype-Password">
+        <button type="submit">Signup</button>
+      </form>
+      <div class="signup-link">
+        Have an account? <a href="/login">Login Now</a>
+      </div>
+    </div>
+</body>
+</html>

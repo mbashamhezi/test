@@ -1,0 +1,41 @@
+.menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+}
+
+.product-form {
+    display: none;
+}
+
+.product-list {
+    display: none;
+}
+
+.product-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #f2f2f2;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
