@@ -6,109 +6,85 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Page</title>
-    <link rel="stylesheet" href="{% static 'tt365/css/admin_homepage.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .product-form {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        .product-form h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .product-form input, .product-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .product-form input[type="file"] {
+            border: none;
+        }
+
+        .product-form button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-form button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
-    <div class="menu">
-        <a href="#" id="men-link">Men</a>
-        <a href="#" id="women-link">Women</a>
-        <a href="#" id="kids-link">Kids</a>
-    </div>
-
-    <div class="product-form" id="men-form">
-        <h3>Add Product for Men</h3>
-        <form id="men-product-form">
-            <input type="text" placeholder="Product Name" id="men-product-name">
-            <input type="number" placeholder="Product Amount" id="men-product-amount">
-            <input type="file" id="men-product-image">
-            <button type="button" onclick="addProduct('men')">Add Product</button>
-        </form>
-    </div>
-
-    <div class="product-list" id="men-list">
-        <h3>Products for Men</h3>
-        <table class="product-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="men-product-list">
-                <!-- Product items will be added here -->
-            </tbody>
-        </table>
-    </div>
-
-    <div class="product-form" id="women-form">
-        <h3>Add Product for Women</h3>
-        <form id="women-product-form">
-            <input type="text" placeholder="Product Name" id="women-product-name">
-            <input type="number" placeholder="Product Amount" id="women-product-amount">
-            <input type="file" id="women-product-image">
-            <button type="button" onclick="addProduct('women')">Add Product</button>
-        </form>
-    </div>
-
-    <div class="product-list" id="women-list">
-        <!-- Similar product list as men, but with different IDs -->
-        <h3>Products for Women</h3>
-        <table class="product-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="women-product-list">
-                <!-- Product items will be added here -->
-            </tbody>
-        </table>
-    </div>
-
-    <div class="product-form" id="kids-form">
-        <!-- Similar form as men, but with different IDs -->
-        <h3>Add Product for Kids</h3>
-            <form id="kids-product-form">
-                <input type="text" placeholder="Product Name" id="kids-product-name">
-                <input type="number" placeholder="Product Amount" id="kids-product-amount">
-                <input type="file" id="kids-product-image">
-                <button type="button" onclick="addProduct('kids')">Add Product</button>
-            </form>
-        </div>
     
-        <div class="product-list" id="kids-list">
-            <!-- Similar product list as men, but with different IDs -->
-            <h3>Products for Kids</h3>
-            <table class="product-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th>Image</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="kids-product-list">
-                    <!-- Product items will be added here -->
-                </tbody>
-            </table>
-        </div>
-
-
-
-
-
+    <div class="product-form" id="men-form">
+        <h3>Add Product</h3>
+        <form  method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" placeholder="Product Name" name="product_name">
+            <select name="category">
+                <option value="men">Men</option>
+                <option value="ladies">Ladies</option>
+                <option value="kids">Kids</option>
+            </select>
+            <input type="text" name="description">
+            <input type="number" placeholder="Product Price" name="price">
+            <input type="text" placeholder="Size" name="size">
+            <input type="color"  name="color">
+            <input type="file" name="image">
+            <button type="submit">Add Product</button>
+        </form>
     </div>
-
-    <div class="product-list" id="kids-list">
-        <!-- Similar product list as men, but with different IDs -->
-    </div>
-
 
     <script src="{% static 'tt365/js/admin_homepage.js' %}"></script>
 </body>

@@ -9,17 +9,20 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import firebase_admin
-from firebase_admin import credentials
+# import firebase_admin
+# from firebase_admin import credentials
 
-cred = credentials.Certificate("/home/erehoo/proj/djangoProjects/ecommerce-e8ac5-firebase-adminsdk-mcmjh-250ddc2ffb.json")
-firebase_admin.initialize_app(cred)
+# cred = credentials.Certificate("/home/erehoo/proj/djangoProjects/ecommerce-e8ac5-firebase-adminsdk-mcmjh-250ddc2ffb.json")
+# firebase_admin.initialize_app(cred)
 
 
 
 
 import os
 from pathlib import Path
+
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/erehoo/proj/djangoProjects/ecommerce-e8ac5-firebase-adminsdk-mcmjh-250ddc2ffb.json"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
