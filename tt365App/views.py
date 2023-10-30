@@ -5,7 +5,7 @@ from firebase_admin.firestore import firestore
 from django.http import HttpResponse, JsonResponse
 from google.cloud import firestore
 from google.cloud import storage
-
+from django.contrib import messages
 
  
 config = {
@@ -27,33 +27,18 @@ database=firebase.database()
 def index(request):
     return render(request, "tt365/index.html")
 
+
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = authe.sign_in_with_email_and_password(email, password)
-        session_id = user['idToken']
-        request.session['uid']=str(session_id)
+        request.session['user_id'] = user['localId']
         return redirect('index')
-    else:
-        print("Invalid credentials")      
+    else: 
+        messages.error(request, 'Login failed. Please check your credentials.')
     return render(request, "tt365/login.html")
-
-
-        # try:
-        #     user = authe.sign_in_with_email_and_password(email, password)
-        #     session_id=user['idToken']
-        #     request.session['uid']=str(session_id)
-        # except auth.InvalidIdTokenError:
-        #     message="Invalid Credentials!!Please ChecK your Data"
-        #     return render(request,"tt365/login.html",{"message":message})
-        # except Exception as e:
-        #     # Handle other exceptions as needed
-        #     message = f"An error occurred: {str(e)}"
-        #     return render(request, "login.html", {"message": message})
-
-    return render(request, "tt365/login.html")
-
+  
 
 def signup(request):
     if request.method == 'POST':
@@ -68,30 +53,11 @@ def signup(request):
     return render(request, "tt365/signup.html")
 
 
-def cart(request):
-    return render(request, "tt365/cart.html")
-
-def admin_homepage(request):
-    return render(request, "tt365/admin_homepage.html")
-
 def shipping(request):
     return render(request, "tt365/shipping.html")
 
 
-
-
-
-
-
-import os
-
-
-
-
 def admin_homepage(request):
-
-    # print(os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"))
-
     if request.method == 'POST':
         product_name = request.POST.get('product_name')
         category = request.POST.get('category')
@@ -100,11 +66,9 @@ def admin_homepage(request):
         size = request.POST.get('size')
         color = request.POST.get('color')
         image = request.FILES.get('image')
-
         if image:
             storage_client = storage.Client()
             bucket = storage_client.get_bucket('gs://ecommerce-e8ac5.appspot.com')
-
             image_filename = f"{product_name}_{image}"
 
               # Upload the image to the storage bucket
@@ -132,10 +96,33 @@ def admin_homepage(request):
         }
 
         # Access the Firestore collection and add the data to it
-        doc_ref = db.collection('products').add(data)
+        data = db.collection('products').add(data)
 
         return redirect('admin_homepage')
-
-        # return HttpResponse(f'Data added to Firestore with ID: {doc_ref}')
-
     return render(request, 'tt365/admin_homepage.html')
+
+
+
+
+def cart(request):
+    return render(request, "tt365/cart.html")
+
+
+
+
+
+
+
+
+def view_products(request):
+    db = firestore.Client()
+    # Retrieve the products from Firestore
+    products_ref = db.collection('products')
+    men_products = products_ref.where("category","==", "Men").stream()
+    # Create a list to store the product data
+    men_products_data = []
+    for product in men_products:
+        product_data = product.to_dict()
+        men_products_data.append(product_data)
+    return render(request, 'tt365/product_list.html', {'products': men_products_data})
+

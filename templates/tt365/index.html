@@ -81,28 +81,22 @@
         </div>
 
         <div class="card-row">
+            {% for product in products %}
             <div class="card">
                 <div class="image-container">
-                    <!-- <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
+                    <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/13A.jpeg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/14.jpeg' %}" alt="Card Image 4"> -->
-
-                    <ul>
-                        {% for product in products %}
-                            <li>
-                                <img src="{{ product.image_url }}" alt="Image">
-                                <h3>{{ product.name }}</h3>
-                                <p>{{ product.price }}</p>
-                            </li>
-                        {% endfor %}
-                    </ul>
-
+                    <img src="{% static 'tt365/images/14.jpeg' %}" alt="Card Image 4">
+                    <div class="card-info">
+                        <!-- <h3>{{ product.product_name }}</h3> -->
+                        <p>${{ product.price }}</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
-                    <h3>Hoodie</h3>
-                    <p>$45.5</p>
+                    <!-- <h3>{{ product.product_name }}</h3> -->
+                    <p>${{ product.price }}</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
@@ -113,11 +107,10 @@
                     <img src="{% static 'tt365/images/18A.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/boxers1.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
-                    <h3>Hoodie</h3>
-                    <p>$45.5</p>
+                    <!-- <h3>{{ product.product_name }}</h3> -->
+                    <p>${{ product.price }}</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
@@ -128,11 +121,10 @@
                     <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/pullneck.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
-                    <h3>Hoodie</h3>
-                    <p>$45.5</p>
+                    <!-- <h3>{{ product.product_name }}</h3> -->
+                    <p>${{ product.price }}</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
@@ -143,14 +135,14 @@
                     <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/18A.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
-                    <h3>Hoodie</h3>
-                    <p>$45.5</p>
+                    <h3>{{ product.product_name }}</h3>
+                    <p>${{ product.price }}</p>
                     <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
+            {% endfor %}
         </div>
 
         <!-- women's fashion section -->

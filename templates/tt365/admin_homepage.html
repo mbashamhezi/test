@@ -9,22 +9,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #E9D980;
             margin: 0;
             padding: 0;
-        }
-
-        .menu {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #fff;
-            margin: 10px;
         }
 
         .product-form {
@@ -42,7 +29,7 @@
         .product-form input, .product-form select {
             width: 100%;
             padding: 10px;
-            margin: 5px 0;
+            margin: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -67,8 +54,8 @@
 </head>
 <body>
     
-    <div class="product-form" id="men-form">
-        <h3>Add Product</h3>
+    <div class="product-form">
+        <h3>Add Products</h3>
         <form  method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="text" placeholder="Product Name" name="product_name">
@@ -79,13 +66,17 @@
             </select>
             <input type="text" name="description">
             <input type="number" placeholder="Product Price" name="price">
-            <input type="text" placeholder="Size" name="size">
+            <select name="size">
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="xxl">XXL</option>
+            </select>
             <input type="color"  name="color">
             <input type="file" name="image">
             <button type="submit">Add Product</button>
         </form>
     </div>
-
-    <script src="{% static 'tt365/js/admin_homepage.js' %}"></script>
 </body>
 </html>
