@@ -46,7 +46,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
+        
         .product-form button:hover {
             background-color: #555;
         }
@@ -58,23 +58,21 @@
         <h3>Add Products</h3>
         <form  method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="text" placeholder="Product Name" name="product_name">
+            <input type="text" placeholder="Product Name" name="name">
             <select name="category">
-                <option value="men">Men</option>
-                <option value="ladies">Ladies</option>
-                <option value="kids">Kids</option>
+                <option value="Men">Men</option>
+                <option value="Ladies">Ladies</option>
+                <option value="Kids">Kids</option>
+                <option value="Special products">Special offer</option>
+                <option value="Best deals">Best Deals</option>
+                <option value="Trending">Trending</option>
             </select>
             <input type="text" name="description">
             <input type="number" placeholder="Product Price" name="price">
-            <select name="size">
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-                <option value="xl">XL</option>
-                <option value="xxl">XXL</option>
+            <input type="text" name="size" placeholder="Size">
             </select>
             <input type="color"  name="color">
-            <input type="file" name="image">
+            <input type="file" name="image" multiple="multiple">
             <button type="submit">Add Product</button>
         </form>
     </div>

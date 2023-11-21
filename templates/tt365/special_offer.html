@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'tt365/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+  
+      .card {
+        width: calc(25% - 20px);
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      .card img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+  
+      .card h3 {
+        margin: 10px 0;
+      }
+  
+      .card p {
+        color: #777;
+      }
+  
+      ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: white;
+          height: 80px;
+      }
+  
+      li {
+          margin-right: 10px; /* Adjust as needed to add spacing between list items */
+      }
+
+      .cart-icon {
+    background-color: #007BFF;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 12px; /* Adjust the font size as needed */
+}
+
+    </style>
+</head>
+<body>
+  <ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="">Men</a></li>
+    <li><a href="">Ladies</a></li>
+    <li><a href="">Kids</a></li>
+    <li>
+      <div class="cart-icon">
+        <span class="cart-count">0</span>
+      </div>
+    </li>
+  </ul>
+  
+  <h3>Special offer</h3>
+
+  <div class="card-container">
+    {% for product in products_data %}
+      <div class="card">
+          <img src="{{ product.image_url }}" alt="{{ product.name }}">
+          <h3>{{ product.name }}</h3>
+          <p>${{ product.price }}</p>
+          <p>Product ID: {{ product.id }}</p>
+          <form method="post" action="{% url 'add_to_cart' product_id=product.id %}">
+            {% csrf_token %}
+            <button type="submit" class="add-to-cart" onclick="updateCartQuantity()">Add to Cart</button>
+          </form> 
+      </div>
+    {% endfor %}
+  </div>
+
+  <script type="text/javascript">
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const cartCount = document.querySelector('.cart-count');
+
+let itemCount = 0;
+
+addToCartButtons.forEach(button => {
+button.addEventListener('click', () => {
+    itemCount++;
+    cartCount.innerText = itemCount;
+});
+});
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

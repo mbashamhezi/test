@@ -70,87 +70,14 @@
 
     <section class="service" id="service">
 
-        <!-- Men's fashion section  -->
-        <div class="row" style="margin-top: 0;">
-            <div class="col-md-12">
-                <div class="text-left bg-dark text-white px-2 py-1 mb-3" style="display: flex; justify-content: space-between;">
-                    <h3 style="margin: 10px; font-size: 1.7rem; text-decoration: underline;">MEN'S FASHION</h3>
-                    <a href="/men-fashion" class="btn btn-primary" style="font-size: 1.7rem;">See All</a>
-                </div>
-            </div>
-        </div>
+        
 
-        <div class="card-row">
-            {% for product in products %}
-            <div class="card">
-                <div class="image-container">
-                    <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/13A.jpeg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/14.jpeg' %}" alt="Card Image 4">
-                    <div class="card-info">
-                        <!-- <h3>{{ product.product_name }}</h3> -->
-                        <p>${{ product.price }}</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
-                <div class="card-info">
-                    <!-- <h3>{{ product.product_name }}</h3> -->
-                    <p>${{ product.price }}</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="image-container">
-                    <img src="{% static 'tt365/images/16A.jpg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/18A.jpeg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/boxers1.jpeg' %}" alt="Card Image 4">
-                </div>
-                <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
-                <div class="card-info">
-                    <!-- <h3>{{ product.product_name }}</h3> -->
-                    <p>${{ product.price }}</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="image-container">
-                    <img src="{% static 'tt365/images/happy.jpeg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/pullneck.jpeg' %}" alt="Card Image 4">
-                </div>
-                <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
-                <div class="card-info">
-                    <!-- <h3>{{ product.product_name }}</h3> -->
-                    <p>${{ product.price }}</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
-    
-            <div class="card">
-                <div class="image-container">
-                    <img src="{% static 'tt365/images/16A.jpg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
-                    <img src="{% static 'tt365/images/18A.jpeg' %}" alt="Card Image 4">
-                </div>
-                <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
-                <div class="card-info">
-                    <h3>{{ product.product_name }}</h3>
-                    <p>${{ product.price }}</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        <!-- women's fashion section -->
+        <!-- Best Deals section -->
         <div class="row" style="margin-top: 15px;">
             <div class="col-md-12">
                 <div class="text-left bg-dark text-white px-2 py-1 mb-3" style="display: flex; justify-content: space-between;">
-                    <h3 style="margin: 10px; font-size: 1.7rem; text-decoration: underline;">LADIES FASHION</h3>
-                    <a href="#" class="btn btn-primary" style="font-size: 1.7rem;">See All</a>
+                    <h3 style="margin: 10px; font-size: 1.7rem; text-decoration: underline;">BEST DEALS</h3>
+                    <a href="#" class="btn btn-primary" style="font-size: 1.7rem;">See All Products</a>
                 </div>
             </div>
         </div>
@@ -163,7 +90,6 @@
                     <img src="{% static 'tt365/images/14.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/13A.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>
@@ -178,7 +104,6 @@
                     <img src="{% static 'tt365/images/boxers1.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/pullneck.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>
@@ -193,7 +118,6 @@
                     <img src="{% static 'tt365/images/tshirt.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/pullneck.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>
@@ -209,7 +133,6 @@
                     <img src="{% static 'tt365/images/boxers1.jpeg' %}" alt="Card Image 3">
                     <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>
@@ -219,12 +142,12 @@
             </div>
         </div>
 
-        <!-- Kid's fashion section -->
+        <!-- Special Offer section -->
         <div class="row" style="margin-top: 15px;">
             <div class="col-md-12">
                 <div class="text-left bg-dark text-white px-2 py-1 mb-3" style="display: flex; justify-content: space-between;">
-                    <h3 style="margin: 10px; font-size: 1.7rem; text-decoration: underline;">KID'S FASHION</h3>
-                    <a href="#" class="btn btn-primary" style="font-size: 1.7rem;">See All</a>
+                    <h3 style="margin: 10px; font-size: 1.7rem; text-decoration: underline;">SPECIAL OFFER</h3>
+                    <a href="/special_offer" class="btn btn-primary" style="font-size: 1.7rem;">See All Products</a>
                 </div>
             </div>
         </div>
@@ -237,7 +160,6 @@
                     <img src="{% static 'tt365/images/14.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/tshirt.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>
@@ -252,7 +174,6 @@
                     <img src="{% static 'tt365/images/16A.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/Soft.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>
@@ -267,7 +188,6 @@
                     <img src="{% static 'tt365/images/happy.jpeg' %}" alt="Card Image 4">
                     <img src="{% static 'tt365/images/14.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>
@@ -283,7 +203,6 @@
                     <img src="{% static 'tt365/images/boxers1.jpeg' %}" alt="Card Image 3">
                     <img src="{% static 'tt365/images/20.jpeg' %}" alt="Card Image 4">
                 </div>
-                <!-- <button class="scroll-left-button" onclick="scrollLeft(this.parentElement)">←</button> -->
                 <button class="scroll-right-button" onclick="scrollRight(this.parentElement)">→</button>
                 <div class="card-info">
                     <h3>Hoodie</h3>

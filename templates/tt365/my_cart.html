@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    /* Add these styles to your CSS file or style section */
+
+.cart-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #E9D98C;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-items {
+  width: 60%;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.remove-item {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.order-summary {
+  width: 35%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.place-order {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Add more styles as needed */
+
+  </style>
+</head>
+<body>
+
+  <div class="cart-page">
+    <h3>Your Cart</h3>
+
+    {% if cart_data %}
+      <div class="cart-container">
+        <div class="cart-items">
+          <ul>
+            {% for item in cart_data %}
+              <li class="cart-item">
+                <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                <div class="item-details">
+                  <h4>{{ item.name }}</h4>
+                  <p>Price: ${{ item.price }}</p>
+                  <div class="quantity-controls">
+                    <button class="quantity-button">-</button>
+                    <span class="quantity">{{ item.quantity }}</span>
+                    <button class="quantity-button">+</button>
+                  </div>
+                  <button class="remove-item">Remove Item</button>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <p>Total Amount: ${{ total_amount }}</p>
+          <p>Shipping Cost: ${{ shipping_cost }}</p>
+          <p>Total Order Amount: ${{ total_order_amount }}</p>
+          <button class="place-order">Place Order</button>
+        </div>
+      </div>
+    {% else %}
+      <p>Your cart is empty.</p>
+    {% endif %}
+  </div>
+
+
+</body>
+</html>

@@ -1,8 +1,10 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login Form</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <style>
 body {
     font-family: Arial, sans-serif;
@@ -61,7 +63,7 @@ button {
 </head>
 <body>
     <div class="container">
-      <form class="login-form" method="post">
+      <form class="login-form" method="post" action="{% url 'special_offer' %}">
         {% csrf_token %}
         <h1>Login</h1>
         <input type="email" name="email" placeholder="Email address ">
@@ -74,3 +76,7 @@ button {
     </div>
 </body>
 </html>
+
+
+
+
